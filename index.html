@@ -1,36 +1,109 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="utf-8">
-  <title>michael — Demo</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <style>body{font-family:system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif;padding:1rem}</style>
-</head>
-<body>
-  <h1>michael — demo</h1>
-  <p>This page demonstrates the michael JavaScript module and how to use it in a page.</p>
-  <div>
-    <label for="name">Your name: </label>
-    <input id="name" type="text" value="js.org visitor" />
-    <button id="run">Greet</button>
-  </div>
-  <div id="out" style="margin-top:1rem;font-weight:600"></div>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <script type="module">
-    import { greet } from './dist/michael.mjs';
+  <title>michael.js — JavaScript Utility Project</title>
+  <meta
+    name="description"
+    content="michael.js is a JavaScript utility project providing reusable helpers and examples for modern web development."
+  />
 
-    const out = document.getElementById('out');
-    const input = document.getElementById('name');
-    const btn = document.getElementById('run');
-
-    function showGreeting(){
-      out.textContent = greet(input.value);
+  <style>
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+      background: #f9fafb;
+      color: #111827;
     }
+    header {
+      background: #111827;
+      color: #fff;
+      padding: 2rem;
+    }
+    main {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+    h1, h2 {
+      line-height: 1.25;
+    }
+    code, pre {
+      background: #f3f4f6;
+      padding: 0.75rem;
+      border-radius: 6px;
+      display: block;
+      overflow-x: auto;
+    }
+    footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.9rem;
+      color: #6b7280;
+    }
+  </style>
+</head>
 
-    btn.addEventListener('click', showGreeting);
+<body>
+  <header>
+    <h1>michael.js</h1>
+    <p>A JavaScript-focused utility project for reusable logic and learning examples</p>
+  </header>
 
-    // show initial greeting
-    showGreeting();
-  </script>
+  <main>
+    <section>
+      <h2>About the Project</h2>
+      <p>
+        <strong>michael.js</strong> is an open-source JavaScript project designed to
+        demonstrate reusable utilities, patterns, and small helpers commonly needed
+        in modern JavaScript and frontend development.
+      </p>
+      <p>
+        The project focuses on clean JavaScript APIs, readability, and practical usage
+        rather than personal content or blogging.
+      </p>
+    </section>
+
+    <section>
+      <h2>JavaScript Ecosystem Relevance</h2>
+      <ul>
+        <li>Written entirely in JavaScript</li>
+        <li>Demonstrates reusable JS utilities and patterns</li>
+        <li>Intended for developers learning or building JS-based applications</li>
+        <li>Can be extended into an NPM package or developer tool</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Example Usage</h2>
+      <p>Below is a simple JavaScript example included for demonstration purposes:</p>
+
+      <pre><code>
+// Example utility function
+function formatName(firstName, lastName) {
+  return `${firstName.trim()} ${lastName.trim()}`;
+}
+
+// Usage
+console.log(formatName("michael", "johson"));
+      </code></pre>
+    </section>
+
+    <section>
+      <h2>Source Code</h2>
+      <p>
+        The source code and future enhancements for this project are hosted on GitHub.
+        This site serves as the documentation and demo page for the project.
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2026 — michael.js · JavaScript Project Demo</p>
+  </footer>
 </body>
 </html>
