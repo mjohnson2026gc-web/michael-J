@@ -22,4 +22,4 @@ console.log(formatWithTitle('michael', 'johnson', { title: 'Dr.' })); // "Dr. Mi
 ```
 
 License: MIT
-Repository: https://github.com/your-username/michaeljs
+Repository: https://github.com/mjohnson2026gc-web/michaeljs
