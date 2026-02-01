@@ -1,26 +1,19 @@
 {
-  "name": "michael", 
+  "name": "michaeljs",
   "version": "0.1.0",
-  "description": "Small utility to format first and last names (tiny demo library).",
-  "main": "michael.js",
-  "module": "michael.js",
-  "type": "module",
-  "scripts": {
-    "test": "jest --passWithNoTests"
-  },
+  "description": "Small utilities for formatting and validating personal names",
+  "main": "index.js",
+  "keywords": ["name", "format", "string", "utility"],
+  "license": "MIT",
+  "author": "Your Name <you@example.com>",
   "repository": {
     "type": "git",
-    "url": "https://github.com/mjohnson2026gc-web/michael"
+    "url": "https://github.com/your-username/michaeljs"
   },
-  "keywords": [
-    "name",
-    "format",
-    "string",
-    "michael"
-  ],
-  "author": "mjohnson2026gc-web",
-  "license": "MIT",
-  "devDependencies": {
-    "jest": "^29.0.0"
+  "scripts": {
+    "test": "node test/test.js"
+  },
+  "engines": {
+    "node": ">=14"
   }
 }
