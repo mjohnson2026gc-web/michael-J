@@ -1,17 +1,40 @@
 # michael
 
-michael is a small JavaScript library that demonstrates functionality for the js.org example.
+Tiny JS utility library for formatting first and last names.
 
-Demo: https://mjohnson2026gc-web.github.io/michael-J/
+## Why this repo exists
 
-How to use
-1. Install: `npm install michael` (if published)
-2. Or open the demo page linked above to see the library in action.
+Originally the README included a very small demo snippet. To avoid confusion and show this is a real, maintainable library, this repo now includes:
+- a small exported module (`michael.js`),
+- package.json + metadata,
+- a unit test,
+- MIT license.
 
-Repository structure
-- index.html — demo page used by GitHub Pages
-- src/ — source files (ES module)
-- dist/ — built bundles (UMD / ESM)
-- package.json — npm metadata
-- LICENSE — license file
-License: MIT
+## Usage
+
+ESM:
+```js
+import formatName from 'michael'; // when published / installed
+// local file:
+import formatName from './michael.js';
+
+console.log(formatName('michael','johnson')); // "Michael Johnson"
+```
+
+CommonJS:
+```js
+const formatName = require('./michael.js');
+console.log(formatName('michael','johnson')); // "Michael Johnson"
+```
+
+## API
+
+- `formatName(firstName, lastName)` — returns a normalized full name, or a single name if only one provided.
+
+## Development
+
+- Run tests: `npm install && npm test`
+
+## License
+
+MIT
