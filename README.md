@@ -1,40 +1,25 @@
-# michael
+# michaeljs
 
-Tiny JS utility library for formatting first and last names.
+A small, open-source JavaScript utility library for formatting and validating personal names.
 
-## Why this repo exists
+Features:
+- formatName(first, last): Trim + capitalize + join (e.g. "michael", "johnson" -> "Michael Johnson")
+- isValidName(name): Simple validation for typical name characters
+- formatWithTitle(first, last, { title }): Adds a title if provided
 
-Originally the README included a very small demo snippet. To avoid confusion and show this is a real, maintainable library, this repo now includes:
-- a small exported module (`michael.js`),
-- package.json + metadata,
-- a unit test,
-- MIT license.
-
-## Usage
-
-ESM:
-```js
-import formatName from 'michael'; // when published / installed
-// local file:
-import formatName from './michael.js';
-
-console.log(formatName('michael','johnson')); // "Michael Johnson"
+Installation:
+```bash
+npm install michaeljs
 ```
 
-CommonJS:
-```js
-const formatName = require('./michael.js');
-console.log(formatName('michael','johnson')); // "Michael Johnson"
+Usage:
+```javascript
+const { formatName, isValidName, formatWithTitle } = require('michaeljs');
+
+console.log(formatName('michael', 'johnson')); // "Michael Johnson"
+console.log(isValidName("O'Connor")); // true
+console.log(formatWithTitle('michael', 'johnson', { title: 'Dr.' })); // "Dr. Michael Johnson"
 ```
 
-## API
-
-- `formatName(firstName, lastName)` — returns a normalized full name, or a single name if only one provided.
-
-## Development
-
-- Run tests: `npm install && npm test`
-
-## License
-
-MIT
+License: MIT
+Repository: https://github.com/your-username/michaeljs
