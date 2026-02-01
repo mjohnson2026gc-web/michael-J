@@ -1,43 +1,35 @@
-/**
- * michael.js - small utility library for formatting personal names
- * @license MIT
- */
+// michael.js
+// Small utility library for personal-name formatting and validation
 
 /**
- * Capitalize the first letter and make the rest lowercase.
- * "mICHael" -> "Michael"
- * @param {string} s
- * @returns {string}
- */
-function capitalize(s) {
-  if (typeof s !== 'string') return '';
-  const trimmed = s.trim();
-  if (trimmed === '') return '';
-  return trimmed[0].toUpperCase() + trimmed.slice(1).toLowerCase();
-}
-
-/**
- * Format a first and last name into "First Last".
- * Performs basic validation and normalization (trim + capitalization).
- *
- * @param {string} firstName
- * @param {string} lastName
- * @returns {string} formatted full name or empty string if both parts invalid
+ * Trim, normalize-case and join first and last names.
+ * Example: ("michael", "johnson") -> "Michael Johnson"
  */
 function formatName(firstName, lastName) {
-  if (firstName == null && lastName == null) return '';
-  const f = capitalize(String(firstName || ''));
-  const l = capitalize(String(lastName || ''));
-  if (f && l) return `${f} ${l}`;
-  if (f) return f;
-  if (l) return l;
-  return '';
+  if (!firstName && !lastName) return '';
+  const f = (firstName || '').toString().trim();
+  const l = (lastName || '').toString().trim();
+  const capitalize = (s) => s ? s.charAt(0).toUpperCase() + s.slice(1).toLowerCase() : '';
+  return [capitalize(f), capitalize(l)].filter(Boolean).join(' ');
 }
 
-// Exports: ESM default + named, and CommonJS compatibility
-export default formatName;
-export { formatName };
-if (typeof module !== 'undefined' && module.exports) {
-  module.exports = formatName;
-  module.exports.formatName = formatName;
+/** Return true if name contains only letters, spaces, hyphens or apostrophes */
+function isValidName(name) {
+  if (typeof name !== 'string') return false;
+  const trimmed = name.trim();
+  if (!trimmed) return false;
+  return /^[A-Za-zÀ-ÖØ-öø-ÿ' -]+$/.test(trimmed);
 }
+
+/** Format with optional title: { title: "Dr." } -> "Dr. Michael Johnson" */
+function formatWithTitle(firstName, lastName, options = {}) {
+  const title = options.title ? options.title.toString().trim() : '';
+  const full = formatName(firstName, lastName);
+  return title ? `${title} ${full}` : full;
+}
+
+module.exports = {
+  formatName,
+  isValidName,
+  formatWithTitle,
+};
